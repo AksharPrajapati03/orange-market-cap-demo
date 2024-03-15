@@ -2,7 +2,7 @@ import { Controller, Get, Patch, Post, Query } from '@nestjs/common';
 import { CoinsService } from './coins.service';
 import { Coin } from './schema/coins.schema';
 
-@Controller('coins1')
+@Controller('coins')
 export class CoinsController {
   constructor(private readonly coinService: CoinsService) {}
 
