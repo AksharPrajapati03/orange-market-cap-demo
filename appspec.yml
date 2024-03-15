@@ -1,0 +1,25 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ubuntu/nestjs-app
+hooks:
+  BeforeInstall:
+    - location: scripts/before-install.sh
+      timeout: 300
+      runas: ubuntu
+  AfterInstall:
+    - location: scripts/after-install.sh
+      timeout: 300
+      runas: ubuntu
+    - location: scripts/install_nestjs_dependencies.sh
+      timeout: 300
+      runas: ubuntu
+  ApplicationStart:
+    - location: scripts/start-application.sh
+      timeout: 300
+      runas: ubuntu
+  ValidateService:
+    - location: scripts/validate-service.sh
+      timeout: 300
+      runas: ubuntu
